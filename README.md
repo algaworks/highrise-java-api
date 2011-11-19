@@ -1,7 +1,7 @@
 Java API for Highrise - 37signals
 ---------------------------------
 This library gives you access to Highrise API.
-It's not supporting the full API, only some features are implemented, but feed free to contribute if you need a new feature.
+It's not supporting the full API, only some features are implemented, but feel free to contribute if you need a new feature.
 
 
 Installation
