@@ -27,6 +27,7 @@ public class Person implements Serializable {
 	public Long getId() {
 		return id;
 	}
+        
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -77,5 +78,10 @@ public class Person implements Serializable {
 			return false;
 		return true;
 	}
+
+    @Override
+    public String toString() {
+        return "Person{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", background=" + background + ", contactData=" + contactData + '}';
+    }
 	
 }

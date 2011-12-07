@@ -67,5 +67,10 @@ public class Note implements Serializable {
 			return false;
 		return true;
 	}
+
+    @Override
+    public String toString() {
+        return "Note{" + "id=" + id + ", body=" + body + ", subjectId=" + subjectId + ", subjectType=" + subjectType + '}';
+    }
 	
 }

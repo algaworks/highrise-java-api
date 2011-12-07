@@ -16,8 +16,13 @@ public class PeopleManager extends HighriseManager {
 		super(webResource, authorization);
 	}
 
-	public List<Person> searchByCriteria(String city, String state, String country, 
-			String zip, String phone, String email) {
+	public List<Person> getAll() {
+            MultivaluedMap<String, String> params = new MultivaluedMapImpl();
+            params.add("n", "500");
+            return this.getAsList(Person.class, People.class, Highrise.PEOPLE_SEARCH_PATH, params);
+        }
+        
+	public List<Person> searchByCriteria(String city, String state, String country, String zip, String phone, String email) {
 		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 		if (city != null && !city.trim().equals("")) {
 			params.add("criteria[city]", city);
