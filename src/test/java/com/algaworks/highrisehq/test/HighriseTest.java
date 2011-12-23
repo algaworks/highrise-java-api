@@ -14,8 +14,7 @@ public class HighriseTest {
 
 	public static void main(String[] args) {
 		// if your URL is http://algaworks.highrisehq.com and your token 12345, use:
-		// Highrise api = new Highrise("algaworks", "12345");
-		Highrise highrise = new Highrise("your_account_name_here", "your_token_here");
+		 Highrise highrise = new Highrise("algaworks", "12345");
 		
 		// creates a person
 		Person person = new Person();
@@ -26,12 +25,12 @@ public class HighriseTest {
 		person.getContactData().addEmailAddress(new EmailAddress("johnjohn@hotmail.com", "Home"));
 		person.getContactData().addPhoneNumber(new PhoneNumber("55 34 1234-5678", "Work"));
 		person = highrise.getPeopleManager().create(person);
-		
+                
 		// creates a note for John Doe
 		Note note = new Note();
 		note.setBody("I told him a joke.");
 		note.setSubjectId(person.getId());
-		note.setSubjectType("Party");
+		note.setSubjectType(Highrise.SubjectType.PARTY);
 		highrise.getNoteManager().create(note);
 		
 		// creates a task for John Doe
@@ -40,7 +39,7 @@ public class HighriseTest {
 		task.setOwnerId(0L); // the owner id (check it in Highrise)
 		task.setCategoryId(0L); // the category id (check it in Highrise)
 		task.setPublic(true);
-		task.setSubjectType("Party");
+		task.setSubjectType(Highrise.SubjectType.PARTY);
 		task.setSubjectId(person.getId());
 		task.setFrame("specific");
 		task.setDueAt(new Date());
