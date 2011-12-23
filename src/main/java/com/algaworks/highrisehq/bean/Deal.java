@@ -5,6 +5,7 @@
 package com.algaworks.highrisehq.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -18,30 +19,24 @@ public class Deal implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private Long id;
-//  <account-id type="integer"></account-id>
     private String accountId;
-//  <author-id type="integer"></author-id>
     private String background;
-//  <background></background>
     private Long categoryId;
-//  <category-id type="integer"></category-id>
-//  <created-at type="datetime"></created-at>
-//  <currency></currency>
-//  <duration type="integer"></duration>
+    private Date createDate;
+    private String currency;
+    private Integer duration;
     private Long groupId;
-//  <group-id type="integer"></group-id>
-//  <name></name>
     private String name;
-//  <owner-id type="integer"></owner-id>
-//  <party-id type="integer"></party-id>
-//  <price type="integer"></price>
-//  <price-type></price-type>
-//  <responsible-party-id type="integer"></responsible-party-id>
+    private Long ownerId;
+    private Long partyId;
+    private Long price;
+    private String priceType;
+    private Long responsiblePartyId;
     private String status;
-//  <status></status>
-//  <status-changed-on type="date"></status-changed-on>
-//  <updated-at type="datetime"></updated-at>
-//  <visible-to>Everyone</visible-to>
+    private Date statusChangeDate;
+    private Date updateDate;
+    private String visibleTo;
+    
 //  <parties type="array">
 //    <party>...</party>
 //  </parties>
@@ -101,6 +96,15 @@ public class Deal implements Serializable {
         this.id = id;
     }
 
+    @XmlElement(name="party-id")
+    public Long getPartyId() {
+        return partyId;
+    }
+
+    public void setPartyId(Long partyId) {
+        this.partyId = partyId;
+    }
+
     @XmlElement(name="status")
     public String getStatus() {
         return status;
@@ -110,9 +114,99 @@ public class Deal implements Serializable {
         this.status = status;
     }
 
+    @XmlElement(name="created-at")
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    @XmlElement(name="currency")
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    @XmlElement(name="duration")
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    @XmlElement(name="owner-id")
+    public Long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    @XmlElement(name="price")
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    @XmlElement(name="price-type")
+    public String getPriceType() {
+        return priceType;
+    }
+
+    public void setPriceType(String priceType) {
+        this.priceType = priceType;
+    }
+
+    @XmlElement(name="responsible-party-id")
+    public Long getResponsiblePartyId() {
+        return responsiblePartyId;
+    }
+
+    public void setResponsiblePartyId(Long responsiblePartyId) {
+        this.responsiblePartyId = responsiblePartyId;
+    }
+
+    @XmlElement(name="status-changed-on")
+    public Date getStatusChangeDate() {
+        return statusChangeDate;
+    }
+
+    public void setStatusChangeDate(Date statusChangeDate) {
+        this.statusChangeDate = statusChangeDate;
+    }
+
+    @XmlElement(name="update-at")
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    @XmlElement(name="visible-to")
+    public String getVisibleTo() {
+        return visibleTo;
+    }
+
+    public void setVisibleTo(String visibleTo) {
+        this.visibleTo = visibleTo;
+    }
+
     @Override
     public String toString() {
-        return "Deal{" + "id=" + id + ", accountId=" + accountId + ", background=" + background + ", categoryId=" + categoryId + ", groupId=" + groupId + ", name=" + name + ", status=" + status + '}';
+        return "Deal{" + "id=" + id + ", accountId=" + accountId + ", categoryId=" + categoryId + ", name=" + name + ", status=" + status + '}';
     }
 
 }

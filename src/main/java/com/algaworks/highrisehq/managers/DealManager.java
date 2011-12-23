@@ -4,7 +4,6 @@
  */
 package com.algaworks.highrisehq.managers;
 
-import com.algaworks.highrisehq.bean.Deal;
 import com.algaworks.highrisehq.bean.ListWrapper;
 import com.sun.jersey.api.client.WebResource;
 import java.util.List;

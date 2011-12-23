@@ -20,6 +20,14 @@ public class NoteManager extends HighriseManager {
 				.replaceAll("#\\{person-id\\}", note.getSubjectId().toString()));
 	}
         
+        public Note createDealNote(Note note){
+            return this.create(note, "deals/1524744/notes.xml");
+        }
+        
+        public Note createCompanyNote(Note note){
+            return this.create(note, "companies/91239927/notes.xml");
+        }
+        
         public List<Note> getAll(Class subjectType, Long subjectId){
             MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 
