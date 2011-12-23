@@ -126,7 +126,7 @@ public abstract class HighriseManager {
 		return builder.get(ClientResponse.class);
 	}
 	
-	private ClientResponse post(String path, Object entity) {
+	protected ClientResponse post(String path, Object entity) {
 		WebResource.Builder builder = this.getBuilder(path, null);
 		return builder.entity(entity).post(ClientResponse.class);
 	}

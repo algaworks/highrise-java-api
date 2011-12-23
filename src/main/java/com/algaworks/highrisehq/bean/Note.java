@@ -1,7 +1,9 @@
 package com.algaworks.highrisehq.bean;
 
+import com.algaworks.highrisehq.Highrise.SubjectType;
 import java.io.Serializable;
 
+import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,7 +15,10 @@ public class Note implements Serializable {
 	private Long id;
 	private String body;
 	private Long subjectId;
-	private String subjectType;
+	private SubjectType subjectType;
+        private Long collectionId;
+        private SubjectType collectionType;
+        private Date createdate;
 	
 	public Long getId() {
 		return id;
@@ -37,12 +42,39 @@ public class Note implements Serializable {
 	}
 	
 	@XmlElement(name="subject-type")
-	public String getSubjectType() {
+	public SubjectType getSubjectType() {
 		return subjectType;
 	}
-	public void setSubjectType(String subjectType) {
+	public void setSubjectType(SubjectType subjectType) {
 		this.subjectType = subjectType;
 	}
+
+    @XmlElement(name="collection-id")
+    public Long getCollectionId() {
+        return collectionId;
+    }
+
+    public void setCollectionId(Long collectionId) {
+        this.collectionId = collectionId;
+    }
+
+    @XmlElement(name="collection-type")
+    public SubjectType getCollectionType() {
+        return collectionType;
+    }
+
+    public void setCollectionType(SubjectType collectionType) {
+        this.collectionType = collectionType;
+    }
+
+    @XmlElement(name="created-at")
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
 	
 	@Override
 	public int hashCode() {
@@ -67,5 +99,10 @@ public class Note implements Serializable {
 			return false;
 		return true;
 	}
+
+    @Override
+    public String toString() {
+        return "Note{" + "id=" + id + ", body=" + body + ", subjectId=" + subjectId + ", subjectType=" + subjectType + '}';
+    }
 	
 }

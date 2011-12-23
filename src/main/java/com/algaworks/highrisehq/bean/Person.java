@@ -13,6 +13,7 @@ public class Person implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String background;
+        private Long companyId;
 	private ContactData contactData = new ContactData();
 
 	@XmlElement(name="first-name")
@@ -27,6 +28,7 @@ public class Person implements Serializable {
 	public Long getId() {
 		return id;
 	}
+        
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -38,6 +40,15 @@ public class Person implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+        @XmlElement(name="company-id")
+        public Long getCompanyId() {
+            return companyId;
+        }
+
+        public void setCompanyId(Long companyId) {
+            this.companyId = companyId;
+        }
 	
 	@XmlElement(name="contact-data")
 	public ContactData getContactData() {
@@ -47,6 +58,7 @@ public class Person implements Serializable {
 		this.contactData = contactData;
 	}
 	
+        @XmlElement(name="background")
 	public String getBackground() {
 		return background;
 	}
@@ -77,5 +89,10 @@ public class Person implements Serializable {
 			return false;
 		return true;
 	}
+
+    @Override
+    public String toString() {
+        return "Person{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", background=" + background + ", contactData=" + contactData + '}';
+    }
 	
 }

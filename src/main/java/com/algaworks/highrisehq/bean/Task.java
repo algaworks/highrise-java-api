@@ -1,5 +1,6 @@
 package com.algaworks.highrisehq.bean;
 
+import com.algaworks.highrisehq.Highrise.SubjectType;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +24,7 @@ public class Task implements Serializable {
 	private String body;
 	private Long ownerId;
 	private Long subjectId;
-	private String subjectType;
+	private SubjectType subjectType;
 	private String frame;
 	private Long categoryId;
 	private String dueAt;
@@ -45,10 +46,10 @@ public class Task implements Serializable {
 	}
 	
 	@XmlElement(name="subject-type")
-	public String getSubjectType() {
+	public SubjectType getSubjectType() {
 		return subjectType;
 	}
-	public void setSubjectType(String subjectType) {
+	public void setSubjectType(SubjectType subjectType) {
 		this.subjectType = subjectType;
 	}
 	
