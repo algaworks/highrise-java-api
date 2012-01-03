@@ -14,7 +14,8 @@ public class HighriseTest {
 
 	public static void main(String[] args) {
 		// if your URL is http://algaworks.highrisehq.com and your token 12345, use:
-		 Highrise highrise = new Highrise("algaworks", "12345");
+		// Highrise highrise = new Highrise("algaworks", "12345");
+		Highrise highrise = new Highrise("beedemo", "543d85cff0e819fe977d09c521df9f36");
 		
 		// creates a person
 		Person person = new Person();

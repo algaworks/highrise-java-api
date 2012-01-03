@@ -25,6 +25,7 @@ public class Company implements Serializable {
     private Long id;
     private String name;
     private SubjectDatas subjectDatas;
+    private ContactData contactData = new ContactData();    
 
     public Company() {
     }
@@ -60,5 +61,13 @@ public class Company implements Serializable {
         this.subjectDatas = subjectDatas;
     }
 
+    @XmlElement(name="contact-data")    
+    public ContactData getContactData() {
+        return contactData;
+    }
+
+    public void setContactData(ContactData contactData) {
+        this.contactData = contactData;
+    }
     
 }

@@ -13,6 +13,8 @@ public class ContactData implements Serializable {
 	
 	private List<EmailAddress> emailAddresses = new ArrayList<EmailAddress>();
 	private List<PhoneNumber> phoneNumbers = new ArrayList<PhoneNumber>();
+	private List<WebAddress> webAddresses = new ArrayList<WebAddress>();
+        private List<Address> addresses = new ArrayList<Address>();
 	
 	@XmlElementWrapper(name="email-addresses")
 	@XmlElement(name="email-address")
@@ -34,12 +36,43 @@ public class ContactData implements Serializable {
 		this.phoneNumbers = phoneNumbers;
 	}
 
+	@XmlElementWrapper(name="web-addresses")
+	@XmlElement(name="web-address")
+        public List<WebAddress> getWebAddresses() {
+            return webAddresses;
+        }
+
+        public void setWebAddresses(List<WebAddress> webAddresses) {
+            this.webAddresses = webAddresses;
+        }
+
+	@XmlElementWrapper(name="addresses")
+	@XmlElement(name="address")
+        public List<Address> getAddresses() {
+            return addresses;
+        }
+
+        public void setAddresses(List<Address> addresses) {
+            this.addresses = addresses;
+        }
+
 	public void addPhoneNumber(PhoneNumber phoneNumber) {
+            if (phoneNumber.getNumber() != null)
 		this.phoneNumbers.add(phoneNumber);
 	}
 	
 	public void addEmailAddress(EmailAddress emailAddress) {
+            if (emailAddress.getAddress() != null)
 		this.emailAddresses.add(emailAddress);
 	}
+        
+        public void addWebAddress(WebAddress webAddress) {
+            if (webAddress.getUrl() != null)
+                this.webAddresses.add(webAddress);
+        }
 	
+        public void addAddress(Address address) {
+            if (address.getStreet() != null)
+                this.addresses.add(address);
+        }
 }
