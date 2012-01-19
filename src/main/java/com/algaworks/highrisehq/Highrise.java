@@ -22,9 +22,12 @@ public class Highrise {
 	public static final String PEOPLE_UPDATE_PATH = "people/#{id}.xml";
 	public static final String PEOPLE_NOTES_PATH = "people/#{person-id}/notes.xml";
 	public static final String COMPANY_PATH = "companies.xml";
+	public static final String COMPANY_SEARCH_PATH = "companies/search.xml";
+	public static final String COMPANY_UPDATE_PATH = "companies/#{id}.xml";
 	public static final String COMPANY_NOTES_PATH = "companies/#{subject-id}/notes.xml";
 	public static final String TASKS_PATH = "/tasks.xml";
 	public static final String DEALS_PATH = "/deals.xml";
+        public static final String DEAL_UPDATE_PATH = "deals/#{id}.xml";
         public static final String COMPANY_TAG_PATH = "/companies/#{subject-id}/tags.xml";
 	
 	private Client client;

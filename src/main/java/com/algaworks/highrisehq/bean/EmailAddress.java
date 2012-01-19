@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class EmailAddress implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+        public static String LOCATION_WORK = "Work";
 	
 	private Long id;
 	private String address;

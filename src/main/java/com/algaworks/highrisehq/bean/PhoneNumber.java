@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class PhoneNumber implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+        public static String LOCATION_WORK = "Work";
+        public static String LOCATION_MOBILE = "Mobile";
 	
 	private Long id;
 	private String number;

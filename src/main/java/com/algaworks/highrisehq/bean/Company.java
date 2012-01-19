@@ -24,6 +24,7 @@ public class Company implements Serializable {
 
     private Long id;
     private String name;
+    private String background;
     private SubjectDatas subjectDatas;
     private ContactData contactData = new ContactData();    
 
@@ -52,6 +53,15 @@ public class Company implements Serializable {
         this.name = name;
     }
 
+    @XmlElement(name="background")
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
+    }
+
     @XmlElement(name="subject_datas")
     public SubjectDatas getSubjectDatas() {
         return subjectDatas;
@@ -68,6 +78,11 @@ public class Company implements Serializable {
 
     public void setContactData(ContactData contactData) {
         this.contactData = contactData;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" + "id=" + id + ", name=" + name + '}';
     }
     
 }

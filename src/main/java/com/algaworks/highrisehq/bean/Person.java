@@ -10,11 +10,14 @@ public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+        private String title;
 	private String firstName;
 	private String lastName;
 	private String background;
         private Long companyId;
+        private String companyName;
 	private ContactData contactData = new ContactData();
+        private SubjectDatas subjectDatas = new SubjectDatas();
 
 	@XmlElement(name="first-name")
 	public String getFirstName() {
@@ -32,6 +35,15 @@ public class Person implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+        @XmlElement(name="title")
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
 	
 	@XmlElement(name="last-name")
 	public String getLastName() {
@@ -49,7 +61,16 @@ public class Person implements Serializable {
         public void setCompanyId(Long companyId) {
             this.companyId = companyId;
         }
-	
+
+        @XmlElement(name="company-name")
+        public String getCompanyName() {
+            return companyName;
+        }
+
+        public void setCompanyName(String companyName) {
+            this.companyName = companyName;
+        }
+
 	@XmlElement(name="contact-data")
 	public ContactData getContactData() {
 		return contactData;
@@ -57,6 +78,15 @@ public class Person implements Serializable {
 	public void setContactData(ContactData contactData) {
 		this.contactData = contactData;
 	}
+
+        @XmlElement(name="subject_datas")        
+        public SubjectDatas getSubjectDatas() {
+            return subjectDatas;
+        }
+
+        public void setSubjectDatas(SubjectDatas subjectDatas) {
+            this.subjectDatas = subjectDatas;
+        }
 	
         @XmlElement(name="background")
 	public String getBackground() {
@@ -92,7 +122,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", background=" + background + ", contactData=" + contactData + '}';
+        return "Person{" + "id=" + id + ", title=" + title + ", firstName=" + firstName + ", lastName=" + lastName + ", background=" + background + ", companyId=" + companyId + "-" + companyName +'}';
     }
 	
 }

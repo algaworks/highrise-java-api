@@ -29,6 +29,35 @@ public abstract class HighriseManager {
 		this.authorization = authorization;
 	}
 	
+        protected <T> T show(Class<T> entity, String path) {
+            T result = null;
+            ClientResponse response = this.get(path, null);
+            
+            String s = response.getEntity(String.class);
+            
+		if (response.getStatus() == ClientResponse.Status.OK.getStatusCode() 
+				|| response.getStatus() == ClientResponse.Status.BAD_REQUEST.getStatusCode()) {
+			try {
+				JAXBContext jc = JAXBContext.newInstance(entity, Empty.class, Errors.class);
+				Unmarshaller unmarshaller = jc.createUnmarshaller();
+				Object obj = unmarshaller.unmarshal(new StringReader(s));
+				if (obj instanceof Errors) {
+					Errors errors = (Errors) obj;
+					throw new HighriseException(response.getStatus(), errors.getError());
+				} else if (!(obj instanceof Empty)) {
+					result = (T) obj;
+				}
+			} catch (JAXBException e) {
+				throw new HighriseException("Error unmarshalling Highrise return.", e);
+			}
+		} else {
+			throw new HighriseException(response.getStatus(), "Highrise return not expected (" 
+					+ ClientResponse.Status.fromStatusCode(response.getStatus()) + ").");
+		}
+		
+		return result;            
+        }
+        
 	protected <T> void update(T entity, String path) {
 		ClientResponse response = this.put(path, entity);
 		
@@ -81,6 +110,15 @@ public abstract class HighriseManager {
 		
 		return result;
 	}
+        
+        @SuppressWarnings("unchecked")
+	protected void remove(String path) {
+		ClientResponse response = this.delete(path);
+                if (response.getStatus() != ClientResponse.Status.OK.getStatusCode()){
+                    throw  new HighriseException(response.getStatus(), "Highrise return not expected (" 
+					+ ClientResponse.Status.fromStatusCode(response.getStatus()) + ").");
+                }
+        }
 	
 	@SuppressWarnings("unchecked")
 	protected <T, W extends ListWrapper<T>> List<T> getAsList(Class<T> objectType, Class<W> listWrapType, String path, MultivaluedMap<String, String> params) {
@@ -135,5 +173,10 @@ public abstract class HighriseManager {
 		WebResource.Builder builder = this.getBuilder(path, null);
 		return builder.entity(entity).put(ClientResponse.class);
 	}
+        
+        private ClientResponse delete(String path) {
+		WebResource.Builder builder = this.getBuilder(path, null);
+                return builder.delete(ClientResponse.class);
+        }
 	
 }

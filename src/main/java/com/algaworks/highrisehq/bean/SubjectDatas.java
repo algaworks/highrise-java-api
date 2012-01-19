@@ -5,6 +5,7 @@
 package com.algaworks.highrisehq.bean;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -34,6 +35,16 @@ public class SubjectDatas {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void removeData(SubjectData subjectData) {
+        for (Iterator<SubjectData> it = datas.iterator(); it.hasNext();) {
+            SubjectData sd = it.next();
+            if (sd.getFieldId().equals(subjectData.getFieldId())){
+                sd.setId(-sd.getId());
+                sd.setValue("");
+            }
+        }
     }
     
 }

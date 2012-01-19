@@ -28,7 +28,8 @@ public class Task implements Serializable {
 	private String frame;
 	private Long categoryId;
 	private String dueAt;
-	private boolean _public;
+	private boolean _public = true;
+        private boolean notify = false;
 	
 	public Long getId() {
 		return id;
@@ -101,7 +102,16 @@ public class Task implements Serializable {
 	public void setOwnerId(Long ownerId) {
 		this.ownerId = ownerId;
 	}
-	
+
+        @XmlElement(name="notify")
+        public boolean isNotify() {
+            return notify;
+        }
+
+        public void setNotify(boolean notify) {
+            this.notify = notify;
+        }
+    
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -125,5 +135,10 @@ public class Task implements Serializable {
 			return false;
 		return true;
 	}
+
+        @Override
+        public String toString() {
+            return "Task{" + "id=" + id + ", body=" + body + ", ownerId=" + ownerId + ", subjectId=" + subjectId + ", subjectType=" + subjectType + ", categoryId=" + categoryId + ", dueAt=" + dueAt + ", _public=" + _public + ", notify=" + notify + '}';
+        }
 	
 }

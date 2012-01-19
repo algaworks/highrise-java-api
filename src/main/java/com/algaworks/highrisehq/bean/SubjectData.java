@@ -14,27 +14,32 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 public class SubjectData implements Serializable {
     
-    public static String BASISID = "524003";
-    public static String INVESTOR = "524016";
-    public static String HUISBANK = "524015";
-    public static String MEDEWERKERCATEGORIE = "524022";
-    public static String OMZETCATEGORIE = "524025";
-    public static String OMZET = "524029";
-    public static String OMVANG = "524008";
-    public static String AFLOOPDATUM = "524007";
-    
+    private Long id;
     private String value;
-    private String name;
+    private String fieldId;
     private String label;
 
     public SubjectData() {}
     
-    public SubjectData(String name, String value) {
-        this.name = name;
+    public SubjectData(String fieldId, String value) {
+        this.fieldId = fieldId;
         this.value = value;
     }
     
+    public SubjectData(String fieldId, String value, String label) {
+        this(fieldId, value);
+        this.label = label;
+    }
+    
+    @XmlElement
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     @XmlElement(name="value")
     public String getValue() {
         return value;
@@ -45,12 +50,12 @@ public class SubjectData implements Serializable {
     }
 
     @XmlElement(name="subject_field_id")
-    public String getName() {
-        return name;
+    public String getFieldId() {
+        return fieldId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFieldId(String name) {
+        this.fieldId = name;
     }
 
     @XmlElement(name="subject_field_label")
@@ -62,10 +67,31 @@ public class SubjectData implements Serializable {
         this.label = label;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final SubjectData other = (SubjectData) obj;
+        if ((this.fieldId == null) ? (other.fieldId != null) : !this.fieldId.equals(other.fieldId)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 71 * hash + (this.fieldId != null ? this.fieldId.hashCode() : 0);
+        return hash;
+    }
     
     @Override
     public String toString() {
-        return "SubjectData{" + "value=" + value + ", name=" + name + ", label=" + label + '}';
+        return "SubjectData{" + "value=" + value + ", fieldId=" + fieldId + ", label=" + label + '}';
     }
 
 }
