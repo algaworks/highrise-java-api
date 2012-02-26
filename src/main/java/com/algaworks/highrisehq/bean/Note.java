@@ -7,6 +7,11 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * 
+ * @author thiagofa
+ *
+ */
 @XmlRootElement(name="note")
 public class Note implements Serializable {
 

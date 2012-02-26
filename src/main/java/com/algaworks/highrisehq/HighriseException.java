@@ -1,5 +1,10 @@
 package com.algaworks.highrisehq;
 
+/**
+ * 
+ * @author thiagofa
+ *
+ */
 public class HighriseException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;

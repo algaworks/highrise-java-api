@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.algaworks.highrisehq.bean;
 
 import java.io.Serializable;
@@ -9,6 +5,7 @@ import java.io.Serializable;
 /**
  *
  * @author duncan
+ * 
  */
 public class WebAddress implements Serializable {
 

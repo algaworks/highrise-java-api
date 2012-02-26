@@ -5,6 +5,11 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * 
+ * @author thiagofa
+ *
+ */
 @XmlRootElement(name="errors")
 public class Errors implements Serializable {
 

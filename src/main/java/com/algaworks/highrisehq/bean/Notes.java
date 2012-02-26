@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.algaworks.highrisehq.bean;
 
 import java.io.Serializable;
@@ -16,7 +12,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="notes")
 public class Notes implements Serializable, ListWrapper<Note> {
     
-    private List<Note> notes;
+	private static final long serialVersionUID = 1L;
+	
+	private List<Note> notes;
 
     @Override
     @XmlElement(name="note")    

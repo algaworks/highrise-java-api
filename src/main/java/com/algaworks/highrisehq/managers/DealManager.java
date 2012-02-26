@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.algaworks.highrisehq.managers;
 
 import com.algaworks.highrisehq.Highrise;
@@ -22,11 +18,13 @@ public class DealManager extends HighriseManager {
     }
     
     @Override
-    public <T, W extends ListWrapper<T>> List<T> getAsList(Class<T> objectType, Class<W> listWrapType, String path, MultivaluedMap<String, String> params) {
+    public <T, W extends ListWrapper<T>> List<T> getAsList(Class<T> objectType, Class<W> listWrapType, 
+    		String path, MultivaluedMap<String, String> params) {
         return super.getAsList(objectType, listWrapType, path, params);
     }
     
     public void update(Deal deal) {
         this.update(deal, Highrise.DEAL_UPDATE_PATH.replaceAll("#\\{id\\}", deal.getId().toString()));
-    }    
+    }
+    
 }

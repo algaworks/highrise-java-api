@@ -18,6 +18,11 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
+/**
+ * 
+ * @author thiagofa
+ *
+ */
 public abstract class HighriseManager {
 
 	private WebResource webResource;

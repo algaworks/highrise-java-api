@@ -2,6 +2,11 @@ package com.algaworks.highrisehq.bean;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @author thiagofa
+ *
+ */
 public class PhoneNumber implements Serializable {
 
 	private static final long serialVersionUID = 1L;

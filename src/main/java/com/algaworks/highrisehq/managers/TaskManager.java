@@ -4,6 +4,11 @@ import com.algaworks.highrisehq.Highrise;
 import com.algaworks.highrisehq.bean.Task;
 import com.sun.jersey.api.client.WebResource;
 
+/**
+ * 
+ * @author thiagofa
+ *
+ */
 public class TaskManager extends HighriseManager {
 
 	public TaskManager(WebResource webResource, String authorization) {

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.algaworks.highrisehq.bean;
 
 import java.io.Serializable;
@@ -14,7 +10,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 public class SubjectData implements Serializable {
     
-    private Long id;
+	private static final long serialVersionUID = 1L;
+	
+	private Long id;
     private String value;
     private String fieldId;
     private String label;

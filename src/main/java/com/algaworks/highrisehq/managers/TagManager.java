@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.algaworks.highrisehq.managers;
 
 import com.algaworks.highrisehq.Highrise;
@@ -57,5 +53,6 @@ public class TagManager extends HighriseManager {
         }
 
         return result;
-    } 
+    }
+    
 }

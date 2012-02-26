@@ -12,6 +12,11 @@ import com.sun.jersey.api.client.filter.ClientFilter;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 
+/**
+ * 
+ * @author thiagofa
+ *
+ */
 public class Highrise {
 
 	private static final String BASE64_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -27,8 +32,8 @@ public class Highrise {
 	public static final String COMPANY_NOTES_PATH = "companies/#{subject-id}/notes.xml";
 	public static final String TASKS_PATH = "/tasks.xml";
 	public static final String DEALS_PATH = "/deals.xml";
-        public static final String DEAL_UPDATE_PATH = "deals/#{id}.xml";
-        public static final String COMPANY_TAG_PATH = "/companies/#{subject-id}/tags.xml";
+    public static final String DEAL_UPDATE_PATH = "deals/#{id}.xml";
+    public static final String COMPANY_TAG_PATH = "/companies/#{subject-id}/tags.xml";
 	
 	private Client client;
 	private String authorization;
@@ -40,18 +45,18 @@ public class Highrise {
 		this.webResource = client.resource("https://" + accountName + ".highrisehq.com");
 	}
         
-        public Highrise(String accountName, String token, ClientFilter filter){
-            this(accountName, token);
-            this.client.addFilter(filter);
-        }
+    public Highrise(String accountName, String token, ClientFilter filter){
+        this(accountName, token);
+        this.client.addFilter(filter);
+    }
 
 	public PeopleManager getPeopleManager() {
 		return new PeopleManager(this.webResource, this.authorization);
 	}
         
-        public CompanyManager getCompanyManager() {
-                return new CompanyManager(this.webResource, this.authorization);
-        }
+    public CompanyManager getCompanyManager() {
+            return new CompanyManager(this.webResource, this.authorization);
+    }
 	
 	public NoteManager getNoteManager() {
 		return new NoteManager(this.webResource, this.authorization);
@@ -61,13 +66,13 @@ public class Highrise {
 		return new TaskManager(this.webResource, this.authorization);
 	}
         
-        public DealManager getDealManager() {
-            return new DealManager(this.webResource, this.authorization);
-        }
-	
-        public TagManager getTagManager() {
-            return new TagManager(this.webResource, this.authorization);
-        }
+    public DealManager getDealManager() {
+        return new DealManager(this.webResource, this.authorization);
+    }
+
+    public TagManager getTagManager() {
+        return new TagManager(this.webResource, this.authorization);
+    }
     
 	private static String encodeCredentialsBasic(String username, String password) {
 		String encode = username + ":" + password;
@@ -86,13 +91,14 @@ public class Highrise {
 		return encoded.toString();
 	}
         
-        @XmlEnum
-        public enum SubjectType {
-            @XmlEnumValue("Deal")
-            DEAL,
-            @XmlEnumValue("Kase")
-            KASE,
-            @XmlEnumValue("Party")
-            PARTY
-        }
+    @XmlEnum
+    public enum SubjectType {
+        @XmlEnumValue("Deal")
+        DEAL,
+        @XmlEnumValue("Kase")
+        KASE,
+        @XmlEnumValue("Party")
+        PARTY
+    }
+    
 }

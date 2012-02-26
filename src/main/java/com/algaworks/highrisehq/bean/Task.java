@@ -9,6 +9,11 @@ import java.util.TimeZone;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * 
+ * @author thiagofa
+ *
+ */
 @XmlRootElement(name="task")
 public class Task implements Serializable {
 
