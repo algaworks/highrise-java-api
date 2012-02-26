@@ -15,7 +15,7 @@ After that, include a dependency into your pom.xml:
 	<dependency>
 		<groupId>com.algaworks</groupId>
 		<artifactId>highrise-java-api</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</dependency>
 
 
